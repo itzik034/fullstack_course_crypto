@@ -50,7 +50,7 @@ class CoinService {
         coin.id = raw.id;
         coin.symbol = raw.symbol;
         coin.name = raw.name;
-        coin.image = raw.image;
+        coin.image = raw.image.large;
 
         // Add the currencies values
         if (raw.market_data && raw.market_data.current_price) {

@@ -4,6 +4,7 @@ import "./CoinCard.css";
 import { useState } from "react";
 import { notify } from "../../../Utils/Notify";
 import { coinService } from "../../../Services/CoinService";
+import { SwitchLimitDialog } from "../SwitchLimitDialog/SwitchLimitDialog";
 
 type CoinCardProps = {
     coin: CoinModel;
@@ -13,6 +14,7 @@ export function CoinCard(props: CoinCardProps) {
 
     const [isFlipped, setIsFlipped] = useState(false);
     const [coinDetails, setCoinDetails] = useState<CoinModel>(props.coin);
+    const [dialogOpen, setDialogOpen] = useState<boolean>(false);
 
     // Saying if the current coin's switch saved as on or not
     const [isSet, setIsSet] = useState<boolean>(() => {
@@ -23,7 +25,10 @@ export function CoinCard(props: CoinCardProps) {
         // If there isn't a list return false
         if (!saved) return false;
 
+        // Convert the string value from localStorage to an array
         const coinsIds: string[] = JSON.parse(saved);
+
+        // Return true if the id is in the list
         return coinsIds.includes(props.coin.id!);
     });
 
@@ -32,14 +37,21 @@ export function CoinCard(props: CoinCardProps) {
         // Get the element who changed (the specific coin switch)
         const checked = event.target.checked;
         
-        // Mark it as checked, or unchecked if already checked
-        setIsSet(checked);
-
         // Get the current list of checked items
         const saved = localStorage.getItem("coinsSwitches");
         
         // If there's a list convert it into an object
         let coinsIds: string[] = saved ? JSON.parse(saved) : [];
+
+        /*  If the user trying to turn on more than 5 switches it won't be possible, 
+            and a dialog will be displayed  */
+        if(checked && coinsIds.length >= 5) {
+            setDialogOpen(true);
+            return;
+        }
+        
+        // Mark it as checked, or unchecked if already checked
+        setIsSet(checked);
         
         // If marked as checked add it to the list, or remove it if unchecked
         if(checked) {
@@ -82,7 +94,7 @@ export function CoinCard(props: CoinCardProps) {
                     <div className="cardContent">
                         <div className="coinIcon"><img src={props.coin.image} /></div>
                         <div className="coinDetails">
-                            <div className="coinName">{props.coin.name}</div>
+                            <div className="coinName" title={props.coin.name}>{props.coin.name}</div>
                             <div className="coinSymbol">{props.coin.symbol}</div>
                         </div>
                         <div className="coinSwitchFill">
@@ -114,6 +126,10 @@ export function CoinCard(props: CoinCardProps) {
                 </div>
 
             </div>
+
+            <SwitchLimitDialog
+                isOpen={dialogOpen}
+                onClose={ () => {setDialogOpen(false)} } />
 
         </div>
     );
