@@ -9,8 +9,8 @@ class CoinService {
     public async getAllCoins(): Promise<CoinModel[]> {
 
         // If there's already coins in Global State - load it from there
-        if (store.getState().coins.length > 0) {
-            return store.getState().coins;
+        if (store.getState().coins.coins.length > 0) {
+            return store.getState().coins.coins;
         }
 
         // Ask the coins list from the server
@@ -31,7 +31,7 @@ class CoinService {
     public async getCoinCurrency(id: string): Promise<CoinModel> {
 
         // Get the coins array from Global State
-        const coins = store.getState().coins;
+        const coins = store.getState().coins.coins;
 
         // Try to find the index of the current coin
         const index = coins.findIndex(c => c.id === id);

@@ -1,5 +1,5 @@
-import { CoinModel } from "../Models/CoinModel";
+import { CoinsState } from "./CoinsSlice";
 
 export type AppState = {
-    coins: CoinModel[];
+    coins: CoinsState;
 };

@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { Menu } from "../Menu/Menu";
 import "./Header.css";
+import { SearchCoins } from "../../CoinArea/SearchCoins/SearchCoins";
 
 export function Header() {
     
@@ -20,7 +21,7 @@ export function Header() {
             <aside><Menu /></aside>
 
             <div className="searchFill">
-                <input type="text" id="searchBox" placeholder="Search..." />
+                <SearchCoins />
             </div>
 
         </div>
