@@ -20,7 +20,7 @@ export function Layout() {
                 <main ref={setScrollEl}>
 
                     <div className="parallaxViewport">
-                        <Parallax speed={-100}>
+                        <Parallax speed={-50}>
                             <img src={backgroundImage}  className="parallaxImg" />
                         </Parallax>
 
