@@ -18,7 +18,7 @@ export function Home() {
     return (
         <div className="Home">
 
-            <h1 className="pageTitle">Crypto Currency Market</h1>
+            <h1 className="pageTitle">Crypto Currencies</h1>
 
             <div className="coinsList">
                 {coins.map(c => <CoinCard key={c.id} coin={c} />)}
