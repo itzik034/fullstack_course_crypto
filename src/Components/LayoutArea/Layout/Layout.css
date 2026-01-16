@@ -1,0 +1,70 @@
+.Layout {
+	height: 100vh;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+}
+
+header, footer, main {
+    grid-column: 1;
+}
+
+header {
+    border-bottom: 1px solid #000;
+}
+
+main {
+    overflow: auto;
+}
+
+footer {
+    border-top: 1px solid #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.Layout > main > .mainContent {
+    padding: 20px;
+}
+
+.parallaxViewport {
+    height: 200px;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    z-index: 0;
+}
+
+.parallaxViewport::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.1); 
+    z-index: 1;
+}
+
+.parallaxImg {
+    width: 100%;
+    min-height: 400px;
+    object-fit: cover;
+    display: block;
+    filter: blur(2px);
+}
+
+.parallaxOverlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+}
+
+.parallaxOverlay > h2 {
+    color: #fff;
+    font-size: 48px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+    text-align: center;
+}

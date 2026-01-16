@@ -1,0 +1,18 @@
+.Menu {
+	display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+
+.Menu > a {
+    color: #000;
+    text-decoration: none;
+    font-size: large;
+    cursor: pointer;
+    transition: color .5s;
+}
+
+.Menu > a:hover {
+    color: #2d2da3;
+    text-decoration: underline;
+}

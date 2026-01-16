@@ -1,0 +1,13 @@
+* {
+    box-sizing: border-box;
+    font-family: 'Comic Relief', cursive;
+}
+
+html, body, #root {
+    padding: 0;
+    margin: 0;
+    top: 0;
+    left: 0;
+    box-sizing: border-box;
+    height: 100%;
+}
