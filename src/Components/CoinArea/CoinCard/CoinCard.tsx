@@ -14,6 +14,49 @@ export function CoinCard(props: CoinCardProps) {
     const [isFlipped, setIsFlipped] = useState(false);
     const [coinDetails, setCoinDetails] = useState<CoinModel>(props.coin);
 
+    // Saying if the current coin's switch saved as on or not
+    const [isSet, setIsSet] = useState<boolean>(() => {
+        
+        // Get the current list of checked items
+        const saved = localStorage.getItem("coinsSwitches");
+
+        // If there isn't a list return false
+        if (!saved) return false;
+
+        const coinsIds: string[] = JSON.parse(saved);
+        return coinsIds.includes(props.coin.id!);
+    });
+
+    const handleSwitchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+        
+        // Get the element who changed (the specific coin switch)
+        const checked = event.target.checked;
+        
+        // Mark it as checked, or unchecked if already checked
+        setIsSet(checked);
+
+        // Get the current list of checked items
+        const saved = localStorage.getItem("coinsSwitches");
+        
+        // If there's a list convert it into an object
+        let coinsIds: string[] = saved ? JSON.parse(saved) : [];
+        
+        // If marked as checked add it to the list, or remove it if unchecked
+        if(checked) {
+            coinsIds.push(props.coin.id!);
+        }
+        else {
+            coinsIds = coinsIds.filter(id => id !== props.coin.id);
+        }
+
+        // Convert the checked coins list to json code
+        const coinsListJson = JSON.stringify(coinsIds);
+
+        // Save the new list to localStorage
+        localStorage.setItem("coinsSwitches", coinsListJson);
+        
+    };
+
     const toggleFlip = async () => {
         
         if(!isFlipped && !coinDetails.eur) {
@@ -43,7 +86,11 @@ export function CoinCard(props: CoinCardProps) {
                             <div className="coinSymbol">{props.coin.symbol}</div>
                         </div>
                         <div className="coinSwitchFill">
-                            <Switch color="secondary" className="coinSwitch" />
+                            <Switch 
+                                color="secondary" 
+                                className="coinSwitch"
+                                checked={isSet}
+                                onChange={handleSwitchChange} />
                         </div>
                     </div>
 
