@@ -15,7 +15,7 @@ export function Header() {
         <div className="Header">
 
             <div id="logo">
-                <img src="./src/assets/img/logo.png" onClick={goHome} />
+                <img src="/logo.png" onClick={goHome} />
             </div>
 
             <aside><Menu /></aside>
