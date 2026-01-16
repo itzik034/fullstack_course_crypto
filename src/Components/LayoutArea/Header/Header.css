@@ -7,21 +7,20 @@
 }
 
 .Header > #logo {
-    flex: 1;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 20px;
+    padding: 20px 40px;
 }
 
 .Header > aside {
     flex-wrap: wrap;
-    flex: 4;
+    flex: 1;
 }
 
 .Header > .searchFill {
-    flex: 1;
     min-width: 15%;
+    padding: 0 40px;
 }
 
 .Header > #logo > img {
