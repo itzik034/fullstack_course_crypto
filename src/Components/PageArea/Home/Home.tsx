@@ -25,15 +25,22 @@ export function Home() {
         setSelectedIds(saved ? JSON.parse(saved) : []);
     }, []);
 
+    // Load the coins list to Local State once - when app loaded
     useEffect(() => {
         coinService.getAllCoins()
             .then(coins => setCoins(coins))
             .catch(err => notify.error(err));
     }, []);
 
+    // Used to display search results. 
+    // Displays all of the coins if the user din't search anything
     const filteredCoins = coins.filter(c => 
+        
+        // The user can search coins by name or symbol and it isn't case sensitive - 
+        // cause we convert his search and the coin's name and symbol to lower case.
         c.name?.toLowerCase().includes(searchText.toLowerCase()) || 
         c.symbol?.toLowerCase().includes(searchText.toLowerCase())
+
     );
 
     return (

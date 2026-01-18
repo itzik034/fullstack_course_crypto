@@ -71,6 +71,8 @@
     flex: 4; 
     padding: 10px 20px;
     min-width: 120px;
+    display: flex;
+    flex-direction: column;
 }
 
 .coinSwitchFill { 

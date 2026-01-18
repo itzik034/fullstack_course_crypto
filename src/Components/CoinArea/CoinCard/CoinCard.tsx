@@ -80,12 +80,16 @@ export const CoinCard = memo((props: CoinCardProps) => {
             <div className="cardInner">
 
                 <div className="cardFront">
+
                     <div className="cardContent">
+                        
                         <div className="coinIcon"><img src={props.coin.image} /></div>
+
                         <div className="coinDetails">
-                            <div className="coinName" title={props.coin.name}>{props.coin.name}</div>
-                            <div className="coinSymbol">{props.coin.symbol}</div>
+                            <span className="coinName" title={props.coin.name}>{props.coin.name}</span>
+                            <span className="coinSymbol">{props.coin.symbol}</span>
                         </div>
+
                         <div className="coinSwitchFill">
                             <Switch
                                 color="secondary"
@@ -93,11 +97,13 @@ export const CoinCard = memo((props: CoinCardProps) => {
                                 checked={props.isSelected}
                                 onChange={handleSwitchChange} />
                         </div>
+
                     </div>
 
                     <div className="cardButton">
                         <Button onClick={toggleFlip} variant="contained" className="coinButton">More Info</Button>
                     </div>
+
                 </div>
 
                 <div className="cardBack">
