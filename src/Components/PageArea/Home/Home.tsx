@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { CoinCard } from "../../CoinArea/CoinCard/CoinCard";
 import "./Home.css";
 import { CoinModel } from "../../../Models/CoinModel";
@@ -11,6 +11,19 @@ export function Home() {
 
     const [coins, setCoins] = useState<CoinModel[]>([]);
     const searchText = useSelector<AppState, string>(state => state.coins.searchText);
+
+    // Save the active switches list to the Local State
+    const [selectedIds, setSelectedIds] = useState<string[]>(() => {
+        const saved = localStorage.getItem("coinsSwitches");
+        return saved ? JSON.parse(saved) : [];
+    });
+
+    // Function to re-render the active switches list
+    // We're using useCallBack to make sure the function created only once
+    const renderSelected = useCallback(() => {
+        const saved = localStorage.getItem("coinsSwitches");
+        setSelectedIds(saved ? JSON.parse(saved) : []);
+    }, []);
 
     useEffect(() => {
         coinService.getAllCoins()
@@ -31,7 +44,13 @@ export function Home() {
             </h1>
 
             <div className="coinsList">
-                {filteredCoins.map(c => <CoinCard key={c.id} coin={c} />)}
+                {filteredCoins.map(c => 
+                    <CoinCard 
+                        key={c.id} 
+                        coin={c} 
+                        isSelected={selectedIds.includes(c.id!)} 
+                        onRender={renderSelected} 
+                    />)}
             </div>
 
         </div>
