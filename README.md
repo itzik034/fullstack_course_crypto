@@ -1,6 +1,6 @@
 This project built by Itzik Uliel.
 
-I wrote everything by myself, even things I didn't know (like hooks) I learned and wrote everything by myself.
+I wrote everything by myself, even things I didn't know I learned and wrote everything by myself.
 I think it's the best way to learn, and also it's fun.
 
 Everything is documented and explained inside the project.
