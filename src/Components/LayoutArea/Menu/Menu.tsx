@@ -7,6 +7,8 @@ export function Menu() {
 
 			<NavLink to="/">Home</NavLink>
 			<NavLink to="/reports">Reports</NavLink>
+			<NavLink to="/ai-recommendations">AI Recommendations</NavLink>
+			<NavLink to="/about">About</NavLink>
 
         </div>
     );
