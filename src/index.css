@@ -1,6 +1,13 @@
+@font-face {
+  font-family: 'Comic Relief';
+  src: url('./assets/fonts/ComicRelief/ComicRelief-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
 * {
     box-sizing: border-box;
-    font-family: 'Comic Relief', cursive;
+    font-family: 'Comic Relief', Arial, cursive;
 }
 
 html, body, #root {
@@ -8,6 +15,5 @@ html, body, #root {
     margin: 0;
     top: 0;
     left: 0;
-    box-sizing: border-box;
     height: 100%;
 }
