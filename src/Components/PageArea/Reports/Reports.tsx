@@ -27,12 +27,17 @@ export function Reports() {
     useEffect(() => {
 
         const storageCoins = localStorage.getItem("coinsSwitches");
-        console.log(storageCoins);
-
+        console.log("storageCoins: " + storageCoins);
 
         if (storageCoins) {
-            const symbolsArray = JSON.parse(storageCoins);
-            setSymbols(symbolsArray);
+            const idsArray = JSON.parse(storageCoins);
+            
+            // Run inside a async function to load coins if not loaded in the Global State
+            const getSymbols = async () => {
+                const symbolsArray = await reportService.getSymbolById(idsArray);
+                setSymbols(symbolsArray);
+            }
+            getSymbols();
         }
 
     }, []);
@@ -45,7 +50,7 @@ export function Reports() {
 
             try {
                 const prices = await reportService.getRealTimePrices(symbols) as Record<string, CoinPriceResponse>;
-                console.log(prices);                
+                console.log(prices);
 
                 if (prices) {
 
