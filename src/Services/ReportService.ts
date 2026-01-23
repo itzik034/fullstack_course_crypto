@@ -30,7 +30,7 @@ class ReportService {
 
         if(!Array.isArray(symbols) || symbols.length === 0) return null;
         
-        const apiSymbols = symbols.join(",").toUpperCase();
+        // const apiSymbols = symbols.join(",").toUpperCase();
         const apiLink = appConfig.realTimeReportUrl;
         // const response = await axios.get(apiLink + apiSymbols);
         // Because now to report data is local I removed the apiSymbols
