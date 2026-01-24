@@ -3,6 +3,7 @@ import { CoinModel } from "../Models/CoinModel";
 import { appConfig } from "../Utils/AppConfig";
 import { coinsSlice } from "../Redux/CoinsSlice";
 import { store } from "../Redux/Store";
+import { CoinDataModel } from "../Models/CoinDataModel";
 
 class CoinService {
 
@@ -15,7 +16,7 @@ class CoinService {
 
         // Ask the coins list from the server
         const response = await axios.get<CoinModel[]>(appConfig.coinsUrlUSD);
-        
+
         // Extract the data from the server response
         const coins = response.data;
 
@@ -65,6 +66,37 @@ class CoinService {
 
         // Return the coin with the new data
         return coin;
+
+    }
+
+    public async getCoinData(coinId: string): Promise<CoinDataModel> {
+
+        // Ask the server for data about current coin
+        const response = await axios.get(appConfig.coinUrl + coinId);
+        const data = response.data;
+
+        // Create a new CoinData
+        const coinData = new CoinDataModel();
+
+        // Get the relevant data from server
+        coinData.name = data.name;
+        coinData.current_price_usd = data.market_data.current_price.usd;
+        coinData.market_cap_usd = data.market_data.market_cap.usd;
+        coinData.volume_24h_usd = data.tickers[1].converted_volume.usd;
+        coinData.price_change_percentage_30d_in_currency = data.market_data.price_change_percentage_30d_in_currency.usd;
+        coinData.price_change_percentage_60d_in_currency = data.market_data.price_change_percentage_60d_in_currency.usd;
+        coinData.price_change_percentage_200d_in_currency = data.market_data.price_change_percentage_200d_in_currency.usd;
+
+        return coinData;
+    }
+
+    public getSavedCoinIds(): string[] {
+
+        // Get the saved coins list from localStorage
+        const savedCoins = localStorage.getItem("coinsSwitches");
+
+        // If there's a list return it as array, or return empty array if not
+        return savedCoins ? JSON.parse(savedCoins) : [];
 
     }
 
