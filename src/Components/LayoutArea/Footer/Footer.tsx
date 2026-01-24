@@ -4,7 +4,7 @@ export function Footer() {
     return (
         <div className="Footer">
 
-			<p>Footer Component</p>
+			<p>&copy; All right reserved to Itzik Uliel</p>
 
         </div>
     );
