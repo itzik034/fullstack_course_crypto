@@ -71,3 +71,71 @@
     align-items: center;
     justify-content: center;
 }
+
+.recommendationText >.response-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.recommendationText > .response-container > .response-header > .response-title {
+    font-weight: bold;
+    text-align: start;
+    border-radius: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-items: start;
+    text-align: start;
+    width: fit-content;
+    text-decoration: underline;
+    margin: 0;
+}
+
+.recommendationText > .response-container > .response-header > .response-title.Buy {
+    color: #15c715;
+}
+
+.recommendationText > .response-container > .response-header > .response-title.Sell {
+    color: #ec2727;
+}
+
+.recommendationText > .response-container > .response-header > .response-title.Hold {
+    color: #399fcb;
+}
+
+.response-container > .response-header > .response-title-text {
+    font-weight: bold;
+    margin-left: 20px;
+    text-align: start;
+    width: fit-content;
+}
+
+.response-container > .response-header {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    align-items: center;
+    justify-content: start;
+}
+
+.response-container > .response-header, .response-container > .response-body {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    flex-wrap: wrap;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.response-container > .response-body > .response-body-text {
+    padding-left: 20px;
+    font-weight: bold;
+}
+
+.response-container > .response-body > .response-text {
+    padding: 0 20px;
+    margin-top: 0;
+}
