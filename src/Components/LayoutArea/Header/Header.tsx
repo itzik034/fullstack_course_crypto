@@ -15,14 +15,13 @@ export function Header() {
         <div className="Header">
 
             <div id="logo">
+                {/* If clicking the logo - navigate to home page */}
                 <img src="/logo.png" onClick={goHome} />
             </div>
 
             <aside><Menu /></aside>
 
-            <div className="searchFill">
-                <SearchCoins />
-            </div>
+            <div className="searchFill"><SearchCoins /></div>
 
         </div>
     );

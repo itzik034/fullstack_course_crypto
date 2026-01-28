@@ -12,29 +12,40 @@ type DialogProps = {
 
 export function SwitchLimitDialog(props: DialogProps) {
     
+    // Get the list of all coins from Global State
     const coins = useSelector<AppState, CoinModel[]>(state => state.coins.coins);
+
+    // The list of saved coins
     const [trackedIds, setTrackedIds] = useState<string[]>([]);
 
     useEffect(() => {
         
+        // Update the saved coins list when dialog opens
         if(props.isOpen) {
             const saved = localStorage.getItem("coinsSwitches");
             setTrackedIds(saved ? JSON.parse(saved) : []);
         }
 
-    }, [props.isOpen]);
+    }, [props.isOpen]); // Update when the dialog opens
 
-    const trackedCoins = coins.filter(c => trackedIds.includes(c.id!));
+    // The coin objects of the saved coins
+    const trackedCoins: CoinModel[] = coins.filter(c => trackedIds.includes(c.id!));
 
+    // A function who runs every time the user turn switch on / off
     const handleToggle = (id: string) => {
-        const updatedIds = trackedIds.filter(coinId => coinId !== id);
+        // If the user turn off a switch update the saved coins list
+        const updatedIds: string[] = trackedIds.filter(coinId => coinId !== id);
         setTrackedIds(updatedIds);
+
+        // Save the updated list to localStorage
         localStorage.setItem("coinsSwitches", JSON.stringify(updatedIds));
     };
     
     return (
         <div className="SwitchLimitDialog">
 
+            {/* A custom dialog who says the users they can't choose more than 5 coins, 
+                designed by MUI library. */}
             <Dialog
                 open={props.isOpen}
                 onClose={props.onClose}

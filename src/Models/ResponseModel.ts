@@ -1,4 +1,6 @@
 export class ResponseModel {
+
+    // The format for ChatGPT response
     public static response: string = `
         <div class="response-container">
             <div class="response-header">
@@ -10,7 +12,7 @@ export class ResponseModel {
             <div class="response-body">
                 <span class="response-body-text">Reason: </span>
                 <p class="response-text">
-                    Your reson...
+                    Your reason...
                 </p>
             </div>
         </div>

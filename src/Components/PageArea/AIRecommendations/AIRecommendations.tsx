@@ -4,12 +4,13 @@ import { useAIRecommendations } from "../../../Hooks/useAIRecommendations";
 
 export function AIRecommendations() {
 
-    // Get the data and logic from a custom hook
+    // Get the data and logic from a custom hook we built
     const { coins, allCoins, recommendations, loading, askForRecommendation } = useAIRecommendations();
 
     return (
         <div className="AIRecommendations">
 
+            {/* Page title */}
             <h2>AI Recommendations</h2>
 
             <div className="coinsContainer">
@@ -17,13 +18,13 @@ export function AIRecommendations() {
                 {/* If there's saved coins and allCoins list loaded - map the saved coins */}
                 {coins && allCoins.length > 0 && coins.map(coinId => {
 
-                    // Find the coin object
+                    // Find the coin object by the id
                     const coin = allCoins.find(c => c.id === coinId);
 
                     // Render nothing if there isn't such a coin
                     if (!coin) return null;
 
-                    // Return the recommendation card
+                    // Return the recommendation card for the specific coin
                     return (
                         <CoinRecommendationCard
                             key={coinId}
@@ -35,6 +36,7 @@ export function AIRecommendations() {
                     );
 
                 })}
+                
             </div>
 
         </div>

@@ -11,6 +11,7 @@ interface CoinRecommendationCardProps {
 
 export function CoinRecommendationCard(props: CoinRecommendationCardProps) {
 
+    // Get the relevant data from props
     const { coin, recommendation, isLoading, onAsk } = props;
 
     return (
@@ -40,10 +41,8 @@ export function CoinRecommendationCard(props: CoinRecommendationCardProps) {
 
                     {/* Print recommendation when loading finished */}
                     {!isLoading && recommendation && (
-                        <div
-                            className="recommendationText"
-                            dangerouslySetInnerHTML={{ __html: recommendation }}
-                        />
+                        <div className="recommendationText"
+                            dangerouslySetInnerHTML={{ __html: recommendation }} />
                     )}
                 </div>
                 

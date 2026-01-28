@@ -44,10 +44,7 @@ export function useCoinsList() {
         );
     }, [coins, searchText]);
 
-    return {
-        searchText,
-        selectedIds,
-        filteredCoins,
-        renderSelected
-    };
+    // Return the relevant data to Home component
+    return { searchText, selectedIds, filteredCoins, renderSelected };
+    
 }

@@ -37,22 +37,32 @@ export function useAIRecommendations() {
 
     const askForRecommendation = async (coinId: string) => {
         
+        // Display the loading spinner
         setLoading(prev => ({ ...prev, [coinId]: true }));
 
+        // Get the specific coin object
         const coin = allCoins.find(c => c.id === coinId);
+        
+        // Get currency data (USD, EUR, NIS)
         const coinData = await coinService.getCoinData(coinId);
 
+        // If coin found
         if (coin) {
-            const result = await gptService.getAIRecommendation(coin.name ?? coinId, coinData);
+            // Ask for AI recommendation
+            const result = await gptService.getAIRecommendation(coin.name!, coinData);
+            
+            // If there's response save it to Local State
             if (result) {
                 setRecommendations(prev => ({ ...prev, [coinId]: result }));
             }
         }
 
+        // Remove the loading spinner
         setLoading(prev => ({ ...prev, [coinId]: false }));
         
     };
 
+    // Return the relevant data to "AIRecommendation" component
     return {
         coins,
         allCoins,

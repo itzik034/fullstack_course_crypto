@@ -8,7 +8,7 @@ export function Reports() {
     // Create the chart object
     const CanvasJSChart = CanvasJSReact.CanvasJSChart;
 
-    // Get chart data
+    // Get chart data from a custom hook
     const { symbols, chartData } = useReports();
 
     // Get chart configuration settings
@@ -22,7 +22,7 @@ export function Reports() {
                 <CanvasJSChart options={options} />
             ) : (
                 
-                // If the user didn't choose any coins display a message
+                // If the user didn't choose any coin - display a message
                 <div className="noCoinsMessage">
                     <h3>No coins selected.</h3>
                     <p>Please go to the Home page and select some coins (up to 5).</p>

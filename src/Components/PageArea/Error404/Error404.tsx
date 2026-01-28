@@ -3,6 +3,7 @@ import "./Error404.css";
 import { useNavigate } from "react-router-dom";
 
 export function Error404() {
+    
     const navigate = useNavigate();
 
     useEffect(() => {

@@ -13,11 +13,11 @@ export function Routing() {
 			<Routes>
 
                 <Route path="/" element={ <Home /> } />
-                <Route path="/home" element={ <Navigate to="/" /> } />
+                <Route path="/home" element={ <Navigate to="/" /> } /> {/* Navigate to root as home page */}
                 <Route path="/reports" element={ <Reports /> } />
                 <Route path="/ai-recommendations" element={ <AIRecommendations /> } />
                 <Route path="/about" element={ <About /> } />
-                <Route path="*" element={ <Error404 /> } />
+                <Route path="/*" element={ <Error404 /> } /> {/* If the user typed the wrong address (that we didn't set as a legal address in this component) - display "404 Error" element */}
 
             </Routes>
 

@@ -38,11 +38,13 @@ function setSearchValue(currentState: CoinsState, action: PayloadAction<string>)
     return currentState;
 }
 
-export interface CoinsState {
+// Set the format of CoinsState
+export type CoinsState = {
     coins: CoinModel[], 
     searchText: string
 }
 
+// A custom initialState for this slice
 const initialState: CoinsState = {
     coins: [], 
     searchText: ""

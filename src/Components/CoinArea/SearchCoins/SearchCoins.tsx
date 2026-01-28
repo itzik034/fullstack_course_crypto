@@ -9,7 +9,7 @@ export function SearchCoins() {
     const location = useLocation();
     const navigate = useNavigate();
     
-    function searchCoins(event: ChangeEvent<HTMLInputElement>) {
+    const searchCoins = (event: ChangeEvent<HTMLInputElement>) => {
         
         // Get the value from the input element
         const value = event.target.value;
@@ -21,7 +21,7 @@ export function SearchCoins() {
         const action = coinsSlice.actions.setSearchValue(value);
         store.dispatch(action);
 
-    }
+    };
     
     return (
         <div className="SearchCoins">

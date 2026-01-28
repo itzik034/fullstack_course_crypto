@@ -1,5 +1,6 @@
 class ChartConfig {
 
+    // Returns the configuration setting for the chart
     public getOptions(symbols: string[], chartData: Record<string, any>) {
 
         return {

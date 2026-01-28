@@ -3,6 +3,7 @@ import { coinSwitchService } from "../Services/CoinSwitchService";
 
 export const useCoinSelection = (coinId: string, onRender: () => void) => {
 
+    // Manage the dialog status
     const [dialogOpen, setDialogOpen] = useState(false);
 
     const handleSwitchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -24,6 +25,7 @@ export const useCoinSelection = (coinId: string, onRender: () => void) => {
             }
         }
         else {
+            // Remove the coin from the saved coins list
             coinSwitchService.removeCheckedCoin(coinId);
         }
 
@@ -32,6 +34,7 @@ export const useCoinSelection = (coinId: string, onRender: () => void) => {
 
     };
 
+    // Return the relevant data to CoinCard component
     return { dialogOpen, setDialogOpen, handleSwitchChange };
 
 };

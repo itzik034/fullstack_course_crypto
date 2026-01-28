@@ -11,7 +11,7 @@ export const store = configureStore<AppState>({
         getDefaultMiddleware({
             /* 
                 Because we added some values (like usd, eur, ils) that aren't exist in the 
-                original array (the array we got from the server) so we need to ignore 
+                original array (the servers array) so we need to ignore 
                 checking serializable.
             */
             serializableCheck: {

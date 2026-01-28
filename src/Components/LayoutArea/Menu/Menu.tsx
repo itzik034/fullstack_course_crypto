@@ -5,6 +5,7 @@ export function Menu() {
     return (
         <div className="Menu">
 
+            {/* Website links */}
 			<NavLink to="/">Home</NavLink>
 			<NavLink to="/reports">Reports</NavLink>
 			<NavLink to="/ai-recommendations">AI Recommendations</NavLink>

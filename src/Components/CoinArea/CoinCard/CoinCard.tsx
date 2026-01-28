@@ -14,8 +14,8 @@ type CoinCardProps = {
 
 };
 
-// We're using memo to tell React "Don't re-render it unless the props changed"
-// It's done for updating the switch when Home tell us to (Home component managing the list of switches status)
+// We're using memo to tell React "Don't re-render this component, unless the props is changed"
+// It's done for updating the switch status when "Home" tells us to (Home component is the manager of the switches status list)
 export const CoinCard = memo((props: CoinCardProps) => {
     
     // Call to my custom hook who handles the switch changes
@@ -25,6 +25,7 @@ export const CoinCard = memo((props: CoinCardProps) => {
     const { isFlipped, coinDetails, toggleFlip } = useCoinDetails(props.coin);
 
     return (
+        // Add "flipped" class if "isFlipped" === true
         <div className={`CoinCard ${isFlipped ? "flipped" : ""}`}>
 
             <div className="cardInner">
@@ -63,6 +64,7 @@ export const CoinCard = memo((props: CoinCardProps) => {
 
             </div>
 
+            {/* If the user choosing more than 5 coins - the hook "useCoinSelection" tell us to display this dialog */}
             <SwitchLimitDialog
                 isOpen={dialogOpen}
                 onClose={() => {
@@ -76,5 +78,5 @@ export const CoinCard = memo((props: CoinCardProps) => {
     (prevProps, nextProps) => {
         // Re-render only when the coin or the switch status changed
         return prevProps.isSelected === nextProps.isSelected &&
-            prevProps.coin.id === nextProps.coin.id;
+               prevProps.coin.id === nextProps.coin.id;
     });
