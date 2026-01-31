@@ -14,7 +14,7 @@ export function Home() {
             <h1 className="pageTitle">
                 {searchText ? `Search results for "${searchText}"` : "Crypto Currencies"}
             </h1>
-
+            
             <div className="coinsList">
                 {/* Get the coins list (filtered by user's search or all of them if not searching)
                     and print each one of them into a custom CoinCard */}
