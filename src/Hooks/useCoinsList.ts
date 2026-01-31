@@ -36,7 +36,7 @@ export function useCoinsList() {
     // Used to display search results. 
     // Displays all of the coins if the user didn't search anything
     const filteredCoins = useMemo(() => {
-        return coins.filter(c =>
+        return (Array.isArray(coins) ? coins : []).filter(c =>
             // The user can search coins by name or symbol and it isn't case sensitive - 
             // cause we convert his search and the coin's name and symbol to lower case.
             c.name?.toLowerCase().includes(searchText.toLowerCase()) ||

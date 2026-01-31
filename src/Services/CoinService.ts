@@ -14,11 +14,17 @@ class CoinService {
             return store.getState().coins.coins;
         }
 
+
         // Ask the coins list from the server
-        const response = await axios.get<CoinModel[]>(appConfig.coinsUrlUSD);
+        const response = await axios.get(appConfig.coinsUrlUSD);
 
         // Extract the data from the server response
-        const coins = response.data;
+        let coins = response.data;
+
+        // If the data is an object (Firebase style) instead of an array, convert it
+        if (coins && !Array.isArray(coins) && typeof coins === 'object') {
+            coins = Object.values(coins);
+        }
 
         // Save the data to Global State
         const action = coinsSlice.actions.initCoins(coins);
