@@ -1,0 +1,11 @@
+.Home > .coinsList {
+	display: flex;
+    max-width: 100%;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    gap: 20px;
+}
+
+.Home > .pageTitle {
+    margin: 0 20px 25px 20px;
+}

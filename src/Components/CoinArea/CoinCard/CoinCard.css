@@ -1,0 +1,135 @@
+.CoinCard {
+	border: 0;
+    border-radius: 10px;
+    width: 18%;
+    min-width: 250px;
+    height: 280px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    perspective: 1000px;
+    background-color: transparent;
+}
+
+.cardInner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    transform-style: preserve-3d;
+}
+
+/* Flipping effect */
+.CoinCard.flipped .cardInner {
+    transform: rotateY(180deg);
+}
+
+.cardFront, .cardBack {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-sizing: border-box;
+}
+
+.cardFront {
+    background-color: #fff;
+}
+
+.cardBack {
+    background-color: #1976d2;
+    color: white;
+    transform: rotateY(180deg);
+    justify-content: start;
+}
+
+.cardContent {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    flex-wrap: wrap;
+}
+
+.coinIcon { 
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.coinDetails {
+    flex: 4; 
+    padding: 10px 20px;
+    min-width: 120px;
+    display: flex;
+    flex-direction: column;
+}
+
+.coinSwitchFill { 
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+    min-width: 50px;
+}
+
+.coinSwitch {
+    scale: 1.5;
+}
+
+.coinIcon > img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+}
+
+.cardButton {
+    width: 100%;
+}
+
+.coinButton { 
+    width: 100%;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 500px !important;
+    border: 0;
+    background-color: blueviolet;
+    color: #fff;
+}
+
+.coinSymbol {
+    color: #00000080;
+    padding: 5px;
+}
+
+.coinName {
+    font-weight: bold;
+    font-size: large;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 100%;
+}
+
+.backButton {
+    border-radius: 500px !important;
+    color: #fff !important;
+    border-color: #fff !important;
+}
+
+.cardBack > h3 {
+    margin: 0;
+}
+
+.cardBack > .backPrices {
+    flex: 1;
+}

@@ -1,0 +1,78 @@
+.Error404 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 75vh;
+    width: 100%;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    color: #333;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align: center;
+}
+
+.content-container {
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 3rem;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    max-width: 500px;
+    width: 90%;
+    animation: popIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.error-code {
+    font-size: 6rem;
+    font-weight: 800;
+    margin: 0;
+    color: #ff6b6b;
+    /* Bright coral/red */
+    line-height: 1;
+}
+
+.error-title {
+    font-size: 2rem;
+    margin: 1rem 0;
+    color: #2d3436;
+}
+
+.error-description {
+    font-size: 1.1rem;
+    color: #636e72;
+    margin-bottom: 2rem;
+    line-height: 1.5;
+}
+
+.home-button {
+    padding: 12px 28px;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #ffffff;
+    background-color: #4ecdc4;
+    /* Bright teal */
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: transform 0.2s ease, background-color 0.2s ease;
+    box-shadow: 0 4px 6px rgba(78, 205, 196, 0.3);
+}
+
+.home-button:hover {
+    background-color: #45b7af;
+    transform: translateY(-2px);
+}
+
+.home-button:active {
+    transform: translateY(0);
+}
+
+@keyframes popIn {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}

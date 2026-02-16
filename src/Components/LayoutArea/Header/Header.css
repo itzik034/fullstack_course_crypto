@@ -1,0 +1,29 @@
+.Header {
+	display: flex;
+    flex-direction: row;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+.Header > #logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 40px;
+}
+
+.Header > aside {
+    flex-wrap: wrap;
+    flex: 1;
+}
+
+.Header > .searchFill {
+    min-width: 15%;
+    padding: 0 40px;
+}
+
+.Header > #logo > img {
+    width: 100px;
+    cursor: pointer;
+}

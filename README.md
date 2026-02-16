@@ -1,0 +1,7 @@
+This project built by Itzik Uliel.
+
+Everything is documented and explained inside the project.
+
+Link to Github: https://github.com/itzik034/fullstack_course_crypto 
+
+Link to Firebase: https://crypto-market-curr.web.app/

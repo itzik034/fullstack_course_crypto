@@ -1,0 +1,141 @@
+.AIRecommendations {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.AIRecommendations > .coinsContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.AIRecommendations > .coinsContainer > .coinBox {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    width: 100%;
+}
+
+.AIRecommendations > .coinsContainer > .coinBox > .coinHeader {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+}
+
+.AIRecommendations > .coinsContainer > .coinBox > .coinHeader > .coinTitle {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin: 10px 0;
+    flex: 1;
+    padding: 0 10px;
+    text-align: start;
+}
+
+.AIRecommendations > .coinsContainer > .coinBox > .coinHeader > .askBtn {
+    padding: 10px 20px;
+    border: 1px solid #ccc;
+    border-radius: 500px;
+    cursor: pointer;
+    background-color: #000;
+    color: #fff;
+}
+
+.AIRecommendations > .coinsContainer > .coinBox > .coinHeader > img {
+    width: 50px;
+    height: 50px;
+}
+
+.AIRecommendations > .coinsContainer > .coinBox > .recommendationBox {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin: 10px 0;
+    width: 100%;
+    text-align: start;
+}
+
+.spinnerContainer {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.recommendationText >.response-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.recommendationText > .response-container > .response-header > .response-title {
+    font-weight: bold;
+    text-align: start;
+    border-radius: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-items: start;
+    text-align: start;
+    width: fit-content;
+    text-decoration: underline;
+    margin: 0;
+}
+
+.recommendationText > .response-container > .response-header > .response-title.Buy {
+    color: #15c715;
+}
+
+.recommendationText > .response-container > .response-header > .response-title.Sell {
+    color: #ec2727;
+}
+
+.recommendationText > .response-container > .response-header > .response-title.Hold {
+    color: #399fcb;
+}
+
+.response-container > .response-header > .response-title-text {
+    font-weight: bold;
+    margin-left: 20px;
+    text-align: start;
+    width: fit-content;
+}
+
+.response-container > .response-header {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    align-items: center;
+    justify-content: start;
+}
+
+.response-container > .response-header, .response-container > .response-body {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    flex-wrap: wrap;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.response-container > .response-body > .response-body-text {
+    padding-left: 20px;
+    font-weight: bold;
+}
+
+.response-container > .response-body > .response-text {
+    padding: 0 20px;
+    margin-top: 0;
+}
